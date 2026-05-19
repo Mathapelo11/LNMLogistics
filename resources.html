@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resources & FAQs | LN Mabaso Logistics</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Resources Hub Layout Grid Structure */
+        .resources-wrapper { 
+            max-width: 1240px; 
+            margin: 0 auto; 
+            padding: 80px 24px; 
+        }
+        
+        .grid-layout { 
+            display: grid; 
+            grid-template-columns: 1.2fr 0.8fr; 
+            gap: 40px; 
+            align-items: start;
+        }
+        
+        /* Clean Light Hub Components */
+        .article-card { 
+            background: var(--cls-white); 
+            padding: 40px; 
+            border-radius: 4px; 
+            border: 1px solid var(--cls-border);
+            margin-bottom: 24px; 
+            transition: var(--transition-fast); 
+        }
+        
+        .article-card:hover { 
+            border-color: var(--cls-gold);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.04);
+            transform: translateY(-2px);
+        }
+
+        .article-card h3 {
+            font-family: var(--font-heading);
+            font-size: 1.45rem;
+            color: var(--cls-black);
+            margin-bottom: 12px;
+            font-weight: 800;
+        }
+
+        .article-card p {
+            font-family: var(--font-body);
+            color: #555555;
+            font-size: 0.98rem;
+            line-height: 1.65;
+            margin-bottom: 24px;
+        }
+
+        /* Asset Panel Inside Card */
+        .card-asset-footer {
+            width: 100%;
+            height: 160px;
+            background: var(--cls-light-gray);
+            border-radius: 4px;
+            margin-bottom: 24px;
+            border: 1px solid var(--cls-border);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            transition: var(--transition-fast);
+        }
+
+        .article-card:hover .card-asset-footer {
+            background: var(--cls-white);
+            border-color: #f1e4bc;
+        }
+
+        .card-asset-footer i {
+            font-size: 2rem;
+            color: var(--cls-gold);
+        }
+
+        .card-asset-footer span {
+            font-family: var(--font-heading);
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #666666;
+        }
+        
+        /* Sidebar Configuration */
+        .faq-sidebar { 
+            background: var(--cls-light-gray); 
+            border: 1px solid var(--cls-border);
+            padding: 40px 35px; 
+            border-radius: 4px; 
+            height: fit-content; 
+        }
+
+        .faq-sidebar h2 {
+            font-family: var(--font-heading);
+            font-size: 1.6rem;
+            color: var(--cls-black);
+            margin-top: 0;
+            margin-bottom: 30px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--cls-border);
+            font-weight: 800;
+        }
+        
+        .faq-item {
+            margin-bottom: 28px;
+        }
+
+        .faq-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .faq-question { 
+            font-family: var(--font-body);
+            font-weight: 700; 
+            font-size: 1.05rem;
+            color: var(--cls-black); 
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .faq-question i {
+            color: var(--cls-gold);
+        }
+        
+        .faq-sidebar p {
+            font-family: var(--font-body);
+            color: #666666;
+            font-size: 0.92rem;
+            line-height: 1.6;
+            margin: 0;
+            padding-left: 26px;
+        }
+
+        /* ------------------------------------------------------------------
+           REDESIGNED LIGHT THEME FOOTER SYSTEM
+        ------------------------------------------------------------------ */
+        .ln-clean-footer {
+            background-color: var(--cls-light-gray);
+            border-top: 1px solid var(--cls-border);
+            padding: 80px 0 0 0;
+            margin-top: 40px;
+            font-family: var(--font-body);
+        }
+
+        .footer-grid-layout {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr;
+            gap: 50px;
+            padding-bottom: 60px;
+        }
+
+        .footer-brand-block h3 {
+            font-family: var(--font-heading);
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: var(--cls-black);
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .footer-brand-block p {
+            color: #666666;
+            font-size: 0.92rem;
+            line-height: 1.6;
+            max-width: 360px;
+        }
+
+        .footer-heading {
+            font-family: var(--font-heading);
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--cls-black);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 24px;
+            position: relative;
+        }
+
+        .footer-heading::after {
+            content: '';
+            display: block;
+            width: 30px;
+            height: 2px;
+            background-color: var(--cls-gold);
+            margin-top: 8px;
+        }
+
+        .footer-hubs-list, .footer-contact-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-hub-item {
+            margin-bottom: 16px;
+        }
+
+        .footer-hub-item h4 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--cls-black);
+            margin-bottom: 4px;
+        }
+
+        .footer-hub-item p {
+            font-size: 0.88rem;
+            color: #666666;
+        }
+
+        .footer-contact-item {
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .footer-contact-item .label {
+            font-size: 0.68rem;
+            font-weight: 800;
+            color: #999999;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+
+        .footer-contact-item a, .footer-contact-item span {
+            color: var(--cls-black);
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: var(--transition-fast);
+        }
+
+        .footer-contact-item a:hover {
+            color: var(--cls-gold);
+        }
+
+        .footer-contact-item i {
+            color: var(--cls-gold);
+            margin-right: 8px;
+        }
+
+        .footer-base-bar {
+            border-top: 1px solid var(--cls-border);
+            padding: 30px 0;
+            background-color: var(--cls-white);
+        }
+
+        .footer-base-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.88rem;
+            color: #777777;
+        }
+
+        .footer-base-flex .designer-attribution {
+            font-weight: 500;
+        }
+
+        .footer-base-flex .designer-attribution strong {
+            color: var(--cls-black);
+        }
+        
+        @media (max-width: 992px) { 
+            .grid-layout, .footer-grid-layout { 
+                grid-template-columns: 1fr; 
+                gap: 40px; 
+            } 
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar">
+        <div class="container top-bar-flex">
+            <div class="top-bar-item"><i class="fas fa-envelope"></i> <a href="mailto:info@lnmabasolcm.com" style="color: inherit; text-decoration: none;">info@lnmabasolcm.com</a></div>
+            <div class="top-bar-item"><i class="fas fa-clock"></i> Mon - Fri: 07:45am - 17:00pm</div>
+        </div>
+    </div>
+
+    <header class="main-header">
+        <div class="container header-flex">
+            <a href="index.html" class="logo-block" style="text-decoration: none; color: inherit;">
+                <img src="image1 (1).jpg" alt="LN Mabaso Logo" style="height: 45px; width: auto;">
+                <div>
+                    <div class="logo-title"><span style="color: var(--cls-gold);">LN</span> MABASO</div>
+                    <div class="logo-sub">LOGISTICS & CAR MOVERS</div>
+                </div>
+            </a>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="about.html" class="nav-link">About Us</a></li>
+                    <li><a href="services.html" class="nav-link">Services</a></li>
+                    <li><a href="process.html" class="nav-link">How We Work</a></li>
+                    <li><a href="resources.html" class="nav-link active">Resources</a></li>
+                    <li><a href="contacts.html" class="nav-link">Contacts</a></li>
+                </ul>
+            </nav>
+            <a href="contacts.html" class="btn-header-quote">Request A Quote</a>
+        </div>
+    </header>
+
+    <main style="background-color: var(--cls-white); padding: 20px 0;">
+        <div class="container resources-wrapper">
+            
+            <div style="text-align: center; margin-bottom: 60px;">
+                <span class="tagline-accent">KNOWLEDGE HUB</span>
+                <h1 class="main-section-title" style="color: var(--cls-black); margin-top: 10px;">Logistics Insights & Resources</h1>
+            </div>
+            
+            <div class="grid-layout">
+                
+                <section>
+                    <div class="article-card">
+                        <h3>How to Prepare Your Vehicle for Transit</h3>
+                        <p>Essential operational steps to ensure your high-value vehicle asset is completely ready for safe, risk-free long-distance highway transport.</p>
+                        
+                        <div class="card-asset-footer">
+                            <i class="fas fa-clipboard-check"></i>
+                            <span>Pre-Transit Verification Protocols</span>
+                        </div>
+
+                        <a href="articles.html" style="color: var(--cls-gold); font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">
+                            Read Full Guide <i class="fas fa-arrow-right" style="font-size: 0.85rem;"></i>
+                        </a>
+                    </div>
+                    
+                    <div class="article-card">
+                        <h3>Logistics Insurance Explained</h3>
+                        <p>A granular breakdown of our comprehensive liability coverage structures designed to maintain total on-road asset protection and absolute transparency.</p>
+                        
+                        <div class="card-asset-footer">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Comprehensive Risk Liability Structure</span>
+                        </div>
+
+                        <a href="articles.html" style="color: var(--cls-gold); font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">
+                            Learn More <i class="fas fa-arrow-right" style="font-size: 0.85rem;"></i>
+                        </a>
+                    </div>
+                </section>
+
+                <aside class="faq-sidebar">
+                    <h2>Quick Answers</h2>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question"><i class="fas fa-globe-africa"></i> Cross-Border Transport?</div>
+                        <p>Yes, we systematically manage international transport corridors including complete customs clearance, port-of-entry filing, and cross-border alignment.</p>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question"><i class="fas fa-bolt"></i> Delivery Timelines?</div>
+                        <p>Our rapid operations dispatch network ensures strategic, fast regional placement timelines across all primary provincial hubs daily.</p>
+                    </div>
+                </aside>
+                
+            </div>
+        </div>
+    </main>
+
+    <footer class="ln-clean-footer">
+        <div class="container">
+            <div class="footer-grid-layout">
+                
+                <div class="footer-brand-block">
+                    <h3><span style="color: var(--cls-gold);">LN</span> MABASO</h3>
+                    <p>Setting the absolute benchmark in South African vehicle transport and asset logistics through exceptional handling, security, and elite fleet management.</p>
+                </div>
+
+                <div>
+                    <h3 class="footer-heading">Our Regional Hubs</h3>
+                    <ul class="footer-hubs-list">
+                        <li class="footer-hub-item">
+                            <h4>Johannesburg (JHB)</h4>
+                            <p>8 Hillside Rd, Parktown</p>
+                        </li>
+                        <li class="footer-hub-item">
+                            <h4>Durban (DBN)</h4>
+                            <p>9 Flamingo Grove, Yellowwood Park</p>
+                        </li>
+                        <li class="footer-hub-item">
+                            <h4>Cape Town (CPT)</h4>
+                            <p>V&A Waterfront, 8001</p>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="footer-heading">Direct Inquiries</h3>
+                    <ul class="footer-contact-list">
+                        <li class="footer-contact-item">
+                            <span class="label">Phone Desk</span>
+                            <span><i class="fas fa-phone"></i> +27 66 224 6679</span>
+                        </li>
+                        <li class="footer-contact-item">
+                            <span class="label">Corporate Communications</span>
+                            <a href="mailto:info@lnmabasolcm.com"><i class="fas fa-envelope"></i> info@lnmabasolcm.com</a>
+                        </li>
+                        <li class="footer-contact-item">
+                            <span class="label">Direct Operations Backup</span>
+                            <a href="mailto:lwazilmabaso@gmail.com"><i class="fas fa-envelope"></i> lwazilmabaso@gmail.com</a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="footer-base-bar">
+            <div class="container footer-base-flex">
+                <p>&copy; 2026 LN Mabaso Logistics. All Rights Reserved.</p>
+                <p class="designer-attribution">Designed by <strong>MS Design</strong></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

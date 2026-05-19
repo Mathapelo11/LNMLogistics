@@ -1,0 +1,434 @@
+/* ==========================================================================
+   LN MABASO MASTER DESIGN SYSTEM (RED DOT GROUP STRUCTURAL LAYOUT)
+   ========================================================================== */
+:root {
+    --cls-black: #000000;
+    --cls-dark: #111111;
+    --cls-white: #ffffff;
+    --cls-light-gray: #f8f9fa;
+    --cls-gold: #d4af37;
+    --cls-gold-hover: #b89321;
+    --cls-border: #e5e7eb;
+    
+    --font-heading: 'Plus Jakarta Sans', 'Inter', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    --transition-fast: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--cls-white);
+    color: #333333;
+    -webkit-font-smoothing: antialiased;
+}
+
+.container {
+    width: 100%;
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* ==========================================================================
+   01. NAVIGATION NAVIGATION & TOP BANNER (CLEAN WHITE/BLACK)
+   ========================================================================== */
+.top-bar {
+    background-color: var(--cls-black);
+    color: var(--cls-white);
+    font-size: 0.8rem;
+    padding: 10px 0;
+    border-bottom: 1px solid #222222;
+}
+
+.top-bar-flex {
+    display: flex;
+    justify-content: flex-end;
+    gap: 24px;
+}
+
+.top-bar-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #cccccc;
+}
+
+.top-bar-item i {
+    color: var(--cls-gold);
+}
+
+.main-header {
+    background-color: var(--cls-white);
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+}
+
+.header-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-block {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-title {
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--cls-black);
+    line-height: 1.1;
+}
+
+.logo-sub {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: #666666;
+    text-transform: uppercase;
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    list-style: none;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #444444;
+    font-size: 0.92rem;
+    font-weight: 600;
+    transition: var(--transition-fast);
+}
+
+.nav-link:hover, .nav-link.active {
+    color: var(--cls-gold);
+}
+
+.btn-header-quote {
+    background-color: var(--cls-black);
+    color: var(--cls-white);
+    border: 2px solid var(--cls-black);
+    padding: 12px 24px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: var(--transition-fast);
+}
+
+.btn-header-quote:hover {
+    background-color: var(--cls-gold);
+    border-color: var(--cls-gold);
+}
+
+/* ==========================================================================
+   02. SLIDER HERO & OVERLAPPING FEATURE CARDS
+   ========================================================================== */
+.hero-slider-viewport {
+    position: relative;
+    height: 600px;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?q=80&w=1600') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+}
+
+.hero-text-panel {
+    max-width: 650px;
+    color: var(--cls-white);
+}
+
+.hero-title {
+    font-family: var(--font-heading);
+    font-size: 4rem;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 16px;
+}
+
+.hero-desc {
+    font-size: 1.2rem;
+    color: var(--cls-light-gray);
+    margin-bottom: 32px;
+}
+
+.btn-hero {
+    background-color: var(--cls-white);
+    color: var(--cls-black);
+    padding: 14px 32px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-decoration: none;
+    transition: var(--transition-fast);
+}
+
+.btn-hero:hover {
+    background-color: var(--cls-gold);
+    color: var(--cls-white);
+}
+
+/* Overlapping Card Element Layout (Red Dot Blueprint) */
+.overlapping-cards-section {
+    position: relative;
+    z-index: 10;
+    margin-top: -80px; 
+    padding-bottom: 60px;
+}
+
+.overlap-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+}
+
+.overlap-card {
+    background-color: var(--cls-white);
+    border-right: 1px solid var(--cls-border);
+    padding: 40px 30px;
+    text-align: left;
+    transition: var(--transition-fast);
+}
+
+.overlap-card:last-child {
+    border-right: none;
+}
+
+.overlap-card:hover {
+    background-color: var(--cls-black);
+    color: var(--cls-white);
+    transform: translateY(-5px);
+}
+
+.overlap-icon {
+    font-size: 2.2rem;
+    color: var(--cls-gold);
+    margin-bottom: 20px;
+}
+
+.overlap-card h3 {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.overlap-card p {
+    font-size: 0.9rem;
+    color: #666666;
+    line-height: 1.5;
+}
+
+.overlap-card:hover p {
+    color: #cccccc;
+}
+
+/* ==========================================================================
+   03. HIGH-CONTRAST SOLID BLACK SERVICES ARCHITECTURE
+   ========================================================================== */
+.dark-content-section {
+    background-color: var(--cls-black);
+    color: var(--cls-white);
+    padding: 120px 0;
+}
+
+.section-head-centered {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 80px auto;
+}
+
+.tagline-accent {
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: var(--cls-gold);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    display: block;
+    margin-bottom: 12px;
+}
+
+.main-section-title {
+    font-family: var(--font-heading);
+    font-size: 2.8rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+
+.capabilities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+.capability-card {
+    background-color: var(--cls-dark);
+    border: 1px solid #222222;
+    padding: 40px 35px;
+    transition: var(--transition-fast);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.capability-card:hover {
+    border-color: var(--cls-gold);
+    transform: translateY(-4px);
+}
+
+.cap-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.cap-icon {
+    font-size: 1.5rem;
+    color: var(--cls-gold);
+}
+
+.cap-badge {
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: 1px solid rgba(212, 175, 55, 0.4);
+    padding: 4px 10px;
+    color: var(--cls-gold);
+}
+
+.cap-title {
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 14px;
+}
+
+.cap-desc {
+    font-size: 0.92rem;
+    color: #aaaaaa;
+    line-height: 1.6;
+    margin-bottom: 24px;
+}
+
+.framework-box {
+    border-top: 1px solid #222222;
+    padding-top: 20px;
+    margin-top: auto;
+}
+
+.framework-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--cls-gold);
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+    display: block;
+}
+
+.framework-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.framework-list li {
+    font-size: 0.88rem;
+    color: #cccccc;
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    line-height: 1.4;
+}
+
+.framework-list li i {
+    color: var(--cls-gold);
+    font-size: 0.8rem;
+    margin-top: 4px;
+}
+
+/* ==========================================================================
+   04. LIGHT OPTIMIZATION OVERRIDES FOR KNOWLEDGE HUB & ARTICLES
+   ========================================================================== */
+body, 
+main[style*="background-color: var(--bg-light);"] {
+    background-color: var(--cls-white) !important;
+    color: #333333 !important;
+}
+
+/* Keeps headers clean on light background contexts */
+main[style*="background-color: var(--bg-light);"] .main-section-title {
+    color: var(--cls-black) !important;
+}
+
+/* Refined Light Mode Theme Rules for Resource & Article Cards */
+.article-card {
+    background: var(--cls-white) !important;
+    border: 1px solid var(--cls-border) !important;
+}
+
+.article-card h3 {
+    color: var(--cls-black) !important;
+}
+
+.article-card p {
+    color: #555555 !important;
+}
+
+.card-asset-footer {
+    background: var(--cls-light-gray) !important;
+    border: 1px solid var(--cls-border) !important;
+}
+
+.card-asset-footer span {
+    color: #666666 !important;
+}
+
+/* Crisp layout alignment for FAQ components on light backgrounds */
+.faq-sidebar {
+    background: var(--cls-light-gray) !important;
+    border: 1px solid var(--cls-border) !important;
+}
+
+.faq-sidebar h2, 
+.faq-sidebar .faq-question {
+    color: var(--cls-black) !important;
+}
+
+.faq-sidebar p {
+    color: #666666 !important;
+}
+
+/* Responsive Overrides */
+@media(max-width: 992px) {
+    .hero-title { font-size: 2.8rem; }
+    .overlap-grid { grid-template-columns: 1fr 1fr; }
+    .main-header { padding: 20px 0; }
+    .nav-menu, .top-bar { display: none; }
+}
+
+@media(max-width: 576px) {
+    .overlap-grid { grid-template-columns: 1fr; }
+}

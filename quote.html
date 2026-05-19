@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request a Quote | LN Mabaso Logistics</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* CSS variables matching your exact brand identity */
+        :root {
+            --primary-gold: #d4af37;
+            --hover-gold: #b89321;
+            --dark-charcoal: #111111;
+            --light-bg: #fafafa;
+            --input-border: #e0e0e0;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { background-color: #ffffff; color: #333333; font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
+        .container { width: 100%; max-width: 1240px; margin: 0 auto; padding: 0 24px; }
+        
+        /* Global Header System */
+        .main-header { background: #ffffff; padding: 15px 0; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 15px rgba(0,0,0,0.05); border-bottom: 1px solid #f0f0f0; }
+        .header-container { display: flex; justify-content: space-between; align-items: center; }
+        .logo-sub { font-size: 10px; letter-spacing: 1px; color:#666; font-weight:500; }
+        .logo-accent { color: var(--primary-gold); font-weight:800; }
+        
+        .nav-links { display: flex; gap: 30px; list-style: none; align-items: center; }
+        .nav-links a { text-decoration: none; color: #444444; font-weight: 600; font-size: 0.92rem; transition: all 0.3s ease; }
+        .nav-links a:hover { color: var(--primary-gold); }
+        
+        .btn-gold { 
+            background: var(--primary-gold); 
+            color: #ffffff !important; 
+            padding: 12px 24px; 
+            text-decoration: none; 
+            font-weight: 700; 
+            font-size: 0.85rem; 
+            border-radius: 4px; 
+            transition: all 0.3s ease; 
+            text-transform: uppercase; 
+            letter-spacing: 1px; 
+            display: inline-block;
+            border: none;
+            cursor: pointer;
+        }
+        .btn-gold:hover { background: var(--hover-gold); transform: translateY(-1px); }
+        .menu-toggle { display: none; font-size: 22px; cursor: pointer; }
+
+        /* Form Area Framework Layout */
+        .quote-hero { background: var(--light-bg); padding: 60px 0; border-bottom: 1px solid #eef0f3; text-align: center; }
+        .quote-hero h1 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 2.5rem; color: var(--dark-charcoal); margin-bottom: 10px; font-weight: 800; }
+        .quote-hero p { color: #666; font-size: 1.05rem; max-width: 600px; margin: 0 auto; }
+
+        .form-section-wrapper { padding: 80px 0; background: #ffffff; }
+        .quote-form-card { background: #ffffff; max-width: 800px; margin: 0 auto; padding: 40px; border-radius: 6px; box-shadow: 0 10px 40px rgba(0,0,0,0.04); border: 1px solid #f0f0f0; }
+        
+        .form-block-group { margin-bottom: 35px; }
+        .form-block-group h3 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.2rem; color: var(--dark-charcoal); margin-bottom: 20px; border-left: 3px solid var(--primary-gold); padding-left: 12px; font-weight: 700; }
+        
+        .form-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .form-grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
+        .field-element { display: flex; flex-direction: column; gap: 8px; margin-bottom: 15px; }
+        
+        .field-element label { font-size: 0.88rem; font-weight: 600; color: #444; }
+        .field-element input, .field-element select, .field-element textarea {
+            padding: 14px;
+            font-size: 0.95rem;
+            border: 1px solid var(--input-border);
+            border-radius: 4px;
+            background: #ffffff;
+            font-family: inherit;
+            transition: border-color 0.2s ease;
+            width: 100%;
+        }
+        .field-element input:focus, .field-element select:focus, .field-element textarea:focus { outline: none; border-color: var(--primary-gold); }
+        
+        /* Submit Action Styling */
+        .submit-container { margin-top: 20px; text-align: center; }
+        .btn-submit { width: 100%; padding: 16px; font-size: 1rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 700; }
+
+        /* Premium Footer System */
+        .premium-footer { background: #0b0b0b; color: #fff; padding: 80px 0 0 0; margin-top: 100px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 50px; }
+        .footer-bottom { border-top: 1px solid #111; padding: 25px 0; margin-top: 60px; }
+
+        @media (max-width: 768px) {
+            .menu-toggle { display: block; }
+            .nav-links { position: fixed; top: 76px; left: -100%; width: 100%; height: calc(100vh - 76px); background: #ffffff; flex-direction: column; padding: 40px 24px; gap: 25px; transition: left 0.4s ease; box-shadow: 0 10px 15px rgba(0,0,0,0.05); align-items: flex-start; }
+            .nav-links.active { left: 0; }
+            .form-grid-2, .form-grid-3 { grid-template-columns: 1fr; gap: 10px; }
+            .quote-form-card { padding: 24px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container header-container">
+            <a href="index.html" class="logo" style="display: flex; align-items: center; gap: 12px; text-decoration: none; color: inherit;">
+                <img src="image1 (1).jpg" alt="LN Mabaso Logo" style="height: 45px; width: auto;">
+                <div><span class="logo-accent">LN</span> MABASO<div class="logo-sub">LOGISTICS & CAR MOVERS</div></div>
+            </a>
+            
+            <nav class="nav-links" id="navMenu">
+                <a href="index.html">Home</a>
+                <a href="about.html">About Us</a>
+                <a href="services.html">Services</a>
+                <a href="process.html">How We Work</a>
+                <a href="contacts.html">Contacts</a>
+                <a href="quote.html" class="btn-gold">Request A Quote</a>
+            </nav>
+            
+            <div class="menu-toggle" id="mobileMenuBtn"><i class="fas fa-bars"></i></div>
+        </div>
+    </header>
+
+    <section class="quote-hero">
+        <div class="container">
+            <h1>Request A Transport Quote</h1>
+            <p>Provide your vehicle transit profile data details below. Our route distribution managers will compile your custom dispatch documentation quote.</p>
+        </div>
+    </section>
+
+    <div class="form-section-wrapper">
+        <div class="container">
+            <form class="quote-form-card" id="quoteForm">
+                
+                <div class="form-block-group">
+                    <h3>1. Personal Information</h3>
+                    <div class="form-grid-2">
+                        <div class="field-element">
+                            <label>First Name</label>
+                            <input type="text" id="firstName" required placeholder="e.g. John">
+                        </div>
+                        <div class="field-element">
+                            <label>Surname</label>
+                            <input type="text" id="surname" required placeholder="e.g. Doe">
+                        </div>
+                    </div>
+                    <div class="form-grid-2">
+                        <div class="field-element">
+                            <label>Contact Number</label>
+                            <input type="tel" id="contactNum" required placeholder="e.g. +27 66 123 4567">
+                        </div>
+                        <div class="field-element">
+                            <label>Email Address</label>
+                            <input type="email" id="emailAddr" required placeholder="e.g. john@domain.co.za">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-block-group">
+                    <h3>2. Delivery Address Locations</h3>
+                    <div class="form-grid-2">
+                        <div class="field-element">
+                            <label>Collection Pick-Up Address</label>
+                            <input type="text" id="pickupAddr" required placeholder="Street address, City, Province">
+                        </div>
+                        <div class="field-element">
+                            <label>Destination Drop-Off Address</label>
+                            <input type="text" id="dropoffAddr" required placeholder="Street address, City, Province">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-block-group">
+                    <h3>3. Vehicle Information</h3>
+                    <div class="form-grid-3">
+                        <div class="field-element">
+                            <label>Vehicle Make</label>
+                            <input type="text" id="vehicleMake" required placeholder="e.g. Toyota">
+                        </div>
+                        <div class="field-element">
+                            <label>Vehicle Model</label>
+                            <input type="text" id="vehicleModel" required placeholder="e.g. Hilux V6">
+                        </div>
+                        <div class="field-element">
+                            <label>Condition</label>
+                            <select id="vehicleCondition" required>
+                                <option value="" disabled selected>Select condition</option>
+                                <option value="Running / Drivable">Running / Drivable</option>
+                                <option value="Non-Running / Runner">Non-Running / Runner</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-grid-2">
+                        <div class="field-element">
+                            <label>Registration Number (Optional)</label>
+                            <input type="text" id="regNum" placeholder="e.g. AB 12 CD GP">
+                        </div>
+                        <div class="field-element">
+                            <label>Preferred Carrier Plan</label>
+                            <select id="carrierPlan" required>
+                                <option value="" disabled selected>Select a plan</option>
+                                <option value="Standard Single Flatbed Transit">Standard Single Flatbed Transit</option>
+                                <option value="Multi-Car Carrier Freight Fleet">Multi-Car Carrier Freight Fleet</option>
+                                <option value="Cross-Border Long-Haul">Cross-Border Long-Haul</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="submit-container">
+                    <button type="submit" class="btn-gold btn-submit">Submit Quote Request <i class="fas fa-arrow-right" style="margin-left: 8px;"></i></button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <footer class="premium-footer">
+        <div class="container footer-grid">
+            <div class="footer-col brand-col">
+                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+                    <img src="image1 (1).jpg" alt="LN Mabaso Logo" style="height: 35px; width: auto;">
+                    <div class="footer-logo" style="font-family:'Plus Jakarta Sans', sans-serif; font-size:1.3rem; font-weight:800; color:#fff;"><span style="color:var(--primary-gold);">LN</span> MABASO</div>
+                </div>
+                <p style="color:#888; font-size:0.9rem; line-height:1.6;">Setting the absolute benchmark in South African vehicle transport and asset logistics through exceptional handling and elite fleet management.</p>
+            </div>
+            <div class="footer-col contact-col">
+                <h3 style="font-family:'Plus Jakarta Sans', sans-serif; font-size:1.1rem; font-weight:700; color:#fff; margin-bottom:20px;">Direct Inquiries</h3>
+                <p style="margin-bottom: 12px; font-weight:600; color:#fff;"><i class="fas fa-phone" style="color:var(--primary-gold); margin-right:6px;"></i> +27 66 224 6679</p>
+                <a href="mailto:info@lnmabasolcm.com" style="color:var(--primary-gold); text-decoration:none; font-size:0.9rem; display:block; margin-bottom:10px;"><i class="fas fa-envelope" style="margin-right:6px;"></i> info@lnmabasolcm.com</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container" style="display:flex; justify-content:space-between; align-items:center; color:#555; font-size:0.85rem;">
+                <p>&copy; 2026 LN Mabaso Logistics. All Rights Reserved.</p>
+                <p>Designed by <span style="color:#fff; font-weight:600;">MS Design</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Interactive Mobile Navbar Toggle Engine
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navMenu = document.getElementById('navMenu');
+        if(mobileMenuBtn && navMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+                const icon = mobileMenuBtn.querySelector('i');
+                icon.className = icon.classList.contains('fa-bars') ? 'fas fa-times' : 'fas fa-bars';
+            });
+        }
+
+        // Form Submit Routing Engine to WhatsApp
+        document.getElementById('quoteForm').addEventListener('submit', function(e) {
+            e.preventDefault(); // Prevents default form processing reload behavior
+
+            // 1. Gather all input field string data structures
+            const firstName = document.getElementById('firstName').value;
+            const surname = document.getElementById('surname').value;
+            const contactNum = document.getElementById('contactNum').value;
+            const emailAddr = document.getElementById('emailAddr').value;
+            const pickupAddr = document.getElementById('pickupAddr').value;
+            const dropoffAddr = document.getElementById('dropoffAddr').value;
+            const vehicleMake = document.getElementById('vehicleMake').value;
+            const vehicleModel = document.getElementById('vehicleModel').value;
+            const vehicleCondition = document.getElementById('vehicleCondition').value;
+            const regNum = document.getElementById('regNum').value || "Not Provided";
+            const carrierPlan = document.getElementById('carrierPlan').value;
+
+            // 2. Format custom stylized text pattern utilizing Markdown syntax characters
+            let message = `*NEW QUOTE REQUEST - LN MABASO LOGISTICS*\n\n`;
+            message += `👤 *CLIENT DETAILS*\n`;
+            message += `• Name: ${firstName} ${surname}\n`;
+            message += `• Phone: ${contactNum}\n`;
+            message += `• Email: ${emailAddr}\n\n`;
+            
+            message += `📍 *TRANSIT PATH*\n`;
+            message += `• Pick-Up: ${pickupAddr}\n`;
+            message += `• Drop-Off: ${dropoffAddr}\n\n`;
+            
+            message += `🚗 *VEHICLE METADATA*\n`;
+            message += `• Make/Model: ${vehicleMake} ${vehicleModel}\n`;
+            message += `• Condition: ${vehicleCondition}\n`;
+            message += `• Registration: ${regNum}\n`;
+            message += `• Service Plan: ${carrierPlan}`;
+
+            // 3. Define standard target South African Country-Code routing phone digits
+            const whatsappNumber = "27662246679"; 
+
+            // 4. Transform alphanumeric data fields into unified encoded parameter path
+            const encodedMessage = encodeURIComponent(message);
+            const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+
+            // 5. Explicitly instruct window instance browser environment to spawn external focus tab
+            window.open(whatsappURL, '_blank');
+        });
+    </script>
+</body>
+</html>

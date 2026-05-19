@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | LN Mabaso Logistics</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=Montserrat:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Base Reset Utility Framework */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { background-color: #ffffff; color: #333333; font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
+        .container { width: 100%; max-width: 1240px; margin: 0 auto; padding: 0 24px; }
+        
+        /* Global Navigation Architecture */
+        .main-header { background: #ffffff; padding: 15px 0; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 15px rgba(0,0,0,0.05); border-bottom: 1px solid #f0f0f0; }
+        .header-container { display: flex; justify-content: space-between; align-items: center; }
+        .logo-sub { font-size: 10px; letter-spacing: 1px; color:#666; font-weight:500; }
+        .logo-accent { color: #d4af37; font-weight:800; }
+        
+        .nav-links { display: flex; gap: 30px; list-style: none; }
+        .nav-links a { text-decoration: none; color: #444444; font-weight: 600; font-size: 0.92rem; transition: all 0.3s ease; }
+        .nav-links a.active, .nav-links a:hover { color: #d4af37; }
+        .btn-gold { background: #d4af37; color: #ffffff; padding: 12px 24px; text-decoration: none; font-weight: 700; font-size: 0.85rem; border-radius: 4px; transition: all 0.3s ease; text-transform: uppercase; letter-spacing: 1px; display: inline-block; }
+        .btn-gold:hover { background: #b89321; }
+        .menu-toggle { display: none; font-size: 20px; cursor: pointer; color: #000; }
+
+        /* ==========================================
+           FIXED PREMIUM CONTACT DETAILS HERO LAYOUT 
+           ========================================== */
+        .contact-hero-section {
+            background-color: #fafafa; /* Clean off-white canvas backdrop */
+            padding: 100px 0;
+            color: #222222;
+            border-bottom: 1px solid #eef0f3;
+        }
+
+        .contact-hero-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr; /* Precise editorial split */
+            gap: 50px;
+            align-items: stretch; /* Match heights across columns */
+        }
+
+        /* Left Column Structure: Typography & Contact Details */
+        .contact-info-panel {
+            background: #ffffff;
+            padding: 50px;
+            border-radius: 4px;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.02);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .section-subtitle {
+            color: #d4af37;
+            font-weight: 800;
+            font-size: 11px;
+            letter-spacing: 2px;
+            display: block;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+        }
+
+        .contact-info-panel h2 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 2.4rem;
+            font-weight: 800;
+            color: #111111;
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+
+        .contact-lead-text {
+            margin-bottom: 35px;
+            color: #666666;
+            line-height: 1.65;
+            font-size: 1.05rem;
+        }
+
+        /* Details Cards Core Tracker */
+        .details-stack-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .detail-item-row h4 {
+            margin-bottom: 6px;
+            color: #111111;
+            font-weight: 700;
+            font-size: 1rem;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .detail-item-row h4 i {
+            color: #d4af37;
+            margin-right: 10px;
+            font-size: 1.1rem;
+        }
+
+        .detail-item-row p {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #000000;
+            padding-left: 26px;
+        }
+
+        .detail-item-row a {
+            color: #d4af37;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 1.15rem;
+            padding-left: 26px;
+            transition: color 0.2s ease;
+        }
+
+        .detail-item-row a:hover {
+            color: #b89321;
+            text-decoration: underline;
+        }
+
+        /* Right Column Structure: Flatbed Media Framing */
+        .contact-visual-panel {
+            position: relative;
+            min-height: 450px;
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .flatbed-hero-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .flatbed-image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.5));
+        }
+
+        /* Interactive Map Section Override Styles */
+        .map-section { background-color: #000000; color: #ffffff; padding: 100px 0; border-top: 1px solid #111111; }
+        .map-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 60px; align-items: center; }
+        .map-visual-container { position: relative; background: #0a0a0a; border: 1px solid #222222; padding: 30px; border-radius: 4px; display: flex; align-items: center; justify-content: center; }
+        .map-marker-node { cursor: pointer; transition: all 0.3s ease; }
+        .map-marker-node:hover { fill: #ffffff !important; filter: drop-shadow(0px 0px 12px #d4af37); }
+        .branch-card-trigger { background: #111111; border: 1px solid #222222; padding: 24px; border-radius: 4px; margin-bottom: 16px; cursor: pointer; transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); display: flex; justify-content: space-between; align-items: center; }
+        .branch-card-trigger:hover, .branch-card-trigger.active { border-color: #d4af37; background: #161616; transform: translateX(4px); }
+        .branch-card-trigger h4 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.15rem; font-weight: 700; color: #ffffff; margin-bottom: 4px; }
+        .branch-card-trigger p { font-size: 0.88rem; color: #aaaaaa; margin: 0; }
+        .branch-arrow { color: #d4af37; font-size: 1rem; transition: transform 0.3s ease; }
+        .branch-card-trigger:hover .branch-arrow { transform: translateX(4px); }
+
+        /* Premium Footer Architecture */
+        .premium-footer { background: #0b0b0b; color: #fff; padding: 80px 0 0 0; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 50px; }
+        .footer-bottom { border-top: 1px solid #111; padding: 25px 0; margin-top: 60px; }
+        
+        /* Responsive Adaptability */
+        @media (max-width: 992px) {
+            .contact-hero-grid, .map-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .contact-visual-panel {
+                min-height: 350px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container header-container">
+            <a href="index.html" class="logo" style="display: flex; align-items: center; gap: 12px; text-decoration: none; color: inherit;">
+                <img src="image1 (1).jpg" alt="LN Mabaso Logo" style="height: 45px; width: auto;">
+                <div><span class="logo-accent">LN</span> MABASO<div class="logo-sub">LOGISTICS & CAR MOVERS</div></div>
+            </a>
+            <nav class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About Us</a>
+                <a href="services.html">Services</a>
+                <a href="process.html">How We Work</a>
+                <a href="contacts.html" class="active" style="color:#d4af37; font-weight:700;">Contacts</a>
+            </nav>
+            <a href="quote.html" class="btn-header-quote">Request A Quote</a>
+            <div class="menu-toggle" id="mobile-menu"><i class="fas fa-bars"></i></div>
+        </div>
+    </header>
+
+    <section class="contact-hero-section">
+        <div class="container">
+            <div class="contact-hero-grid">
+                
+                <div class="contact-info-panel">
+                    <span class="section-subtitle">Get In Touch</span>
+                    <h2>Logistics Desk Contacts</h2>
+                    <p class="contact-lead-text">Reach out to our teams directly across our major operation centers for instant quotes, single transfers, or long-term contracts.</p>
+                    
+                    <div class="details-stack-wrapper">
+                        <div class="detail-item-row">
+                            <h4><i class="fas fa-phone"></i> Phone Support</h4>
+                            <p>+27 66 224 6679</p>
+                        </div>
+                        
+                        <div class="detail-item-row">
+                            <h4><i class="fas fa-envelope"></i> Corporate Mailbox</h4>
+                            <a href="mailto:info@lnmabasolcm.com">info@lnmabasolcm.com</a>
+                        </div>
+                        
+                        <div class="detail-item-row">
+                            <h4><i class="fas fa-envelope"></i> Direct Operations Support</h4>
+                            <a href="mailto:lwazilmabaso@gmail.com">lwazilmabaso@gmail.com</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-visual-panel">
+                    <img src="image9.jpeg" alt="LN Mabaso Carrier Flatbed Transport Truck" class="flatbed-hero-img">
+                    <div class="flatbed-image-overlay"></div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    
+    <section class="map-section">
+        <div class="container">
+            <div class="map-grid">
+                
+                <div class="map-content-block">
+                    <span class="tagline-accent" style="color:#d4af37; font-weight:800; font-size:11px; letter-spacing:3px; display:block; margin-bottom:12px;">NATIONAL FOOTPRINT</span>
+                    <h2 style="font-family:'Plus Jakarta Sans', sans-serif; font-size:2.5rem; font-weight:800; margin-bottom:20px; line-height:1.2;">Our Regional Hubs</h2>
+                    <p style="color:#aaaaaa; margin-bottom:40px; line-height:1.6;">We run daily on-wheels transits and trailer freight deployments anchored from three major localized strategic trade gates within South Africa.</p>
+                    
+                    <div class="branch-selector-track">
+                        <div class="branch-card-trigger active" data-target="marker-jhb" onclick="focusMapNode('marker-jhb')">
+                            <div>
+                                <h4>Gauteng Hub</h4>
+                                <p>8 Hillside Rd, Parktown, Johannesburg</p>
+                            </div>
+                            <div class="branch-arrow"><i class="fas fa-arrow-right"></i></div>
+                        </div>
+                        
+                        <div class="branch-card-trigger" data-target="marker-dbn" onclick="focusMapNode('marker-dbn')">
+                            <div>
+                                <h4>KwaZulu-Natal Hub</h4>
+                                <p>9 Flamingo Grove, Yellowwood Park, Durban</p>
+                            </div>
+                            <div class="branch-arrow"><i class="fas fa-arrow-right"></i></div>
+                        </div>
+                        
+                        <div class="branch-card-trigger" data-target="marker-cpt" onclick="focusMapNode('marker-cpt')">
+                            <div>
+                                <h4>Western Cape Hub</h4>
+                                <p>V&A Waterfront, Cape Town, 8001</p>
+                            </div>
+                            <div class="branch-arrow"><i class="fas fa-arrow-right"></i></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="map-visual-container">
+                    <svg viewBox="0 0 500 450" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" style="max-width:440px;">
+                        <path d="M120,40 L280,30 L420,70 L480,180 L440,280 L380,360 L280,410 L160,420 L60,370 L30,260 L40,140 Z" fill="#111111" stroke="#222222" stroke-width="2" />
+                        
+                        <line x1="320" y1="130" x2="410" y2="240" stroke="#d4af37" stroke-width="1.5" stroke-dasharray="4,4" opacity="0.6"/>
+                        <line x1="320" y1="130" x2="180" y2="390" stroke="#d4af37" stroke-width="1.5" stroke-dasharray="4,4" opacity="0.6"/>
+                        <line x1="410" y1="240" x2="180" y2="390" stroke="#d4af37" stroke-width="1.5" stroke-dasharray="4,4" opacity="0.6"/>
+
+                        <g id="marker-jhb" class="map-marker-node" onclick="focusMapNode('marker-jhb')">
+                            <circle cx="320" cy="130" r="16" fill="#d4af37" opacity="0.15"/>
+                            <circle cx="320" cy="130" r="7" fill="#d4af37" stroke="#ffffff" stroke-width="1.5"/>
+                            <text x="320" y="105" fill="#ffffff" font-size="11" font-weight="700" font-family="'Inter', sans-serif" text-anchor="middle">JOHANNESBURG (HQ)</text>
+                        </g>
+
+                        <g id="marker-dbn" class="map-marker-node" onclick="focusMapNode('marker-dbn')">
+                            <circle cx="410" cy="240" r="16" fill="#d4af37" opacity="0.15"/>
+                            <circle cx="410" cy="240" r="7" fill="#d4af37" stroke="#ffffff" stroke-width="1.5"/>
+                            <text x="430" y="244" fill="#ffffff" font-size="11" font-weight="700" font-family="'Inter', sans-serif">DURBAN</text>
+                        </g>
+
+                        <g id="marker-cpt" class="map-marker-node" onclick="focusMapNode('marker-cpt')">
+                            <circle cx="180" cy="390" r="16" fill="#d4af37" opacity="0.15"/>
+                            <circle cx="180" cy="390" r="7" fill="#d4af37" stroke="#ffffff" stroke-width="1.5"/>
+                            <text x="180" y="418" fill="#ffffff" font-size="11" font-weight="700" font-family="'Inter', sans-serif" text-anchor="middle">CAPE TOWN</text>
+                        </g>
+                    </svg>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="premium-footer">
+        <div class="container footer-grid">
+            <div class="footer-col brand-col">
+                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+                    <img src="image1 (1).jpg" alt="LN Mabaso Logo" style="height: 35px; width: auto;">
+                    <div class="footer-logo" style="margin-bottom: 0; font-family:'Plus Jakarta Sans', sans-serif; font-size:1.3rem; font-weight:800; color:#fff;"><span class="gold-txt" style="color:#d4af37;">LN</span> MABASO</div>
+                </div>
+                <p style="color:#888; font-size:0.9rem; line-height:1.6;">Setting the absolute benchmark in South African vehicle transport and asset logistics through exceptional handling, security, and elite fleet management.</p>
+            </div>
+            <div class="footer-col branches-col">
+                <h3 style="font-family:'Plus Jakarta Sans', sans-serif; font-size:1.1rem; font-weight:700; color:#fff; margin-bottom:20px;">Our Regional Hubs</h3>
+                <div class="office-location" style="margin-bottom:12px;"><h4>Johannesburg (JHB)</h4><p style="color:#888; font-size:0.85rem;">8 Hillside Rd, Parktown</p></div>
+                <div class="office-location" style="margin-bottom:12px;"><h4>Durban (DBN)</h4><p style="color:#888; font-size:0.85rem;">9 Flamingo Grove, Yellowwood Park</p></div>
+                <div class="office-location" style="margin-bottom:12px;"><h4>Cape Town (CPT)</h4><p style="color:#888; font-size:0.85rem;">V&A Waterfront, 8001</p></div>
+            </div>
+            <div class="footer-col contact-col">
+                <h3 style="font-family:'Plus Jakarta Sans', sans-serif; font-size:1.1rem; font-weight:700; color:#fff; margin-bottom:20px;">Direct Inquiries</h3>
+                <p style="margin-bottom: 12px; font-weight:600; color:#fff;"><i class="fas fa-phone" style="color:#d4af37; margin-right:6px;"></i> +27 66 224 6679</p>
+                <div style="margin-bottom: 12px;">
+                    <span style="display:block; font-size:10px; color:#555; font-weight:800; letter-spacing:0.5px; margin-bottom:2px;">CORPORATE DESK:</span>
+                    <a href="mailto:info@lnmabasolcm.com" class="footer-email-link" style="color:#d4af37; text-decoration:none; font-size:0.9rem;"><i class="fas fa-envelope" style="margin-right:6px;"></i> info@lnmabasolcm.com</a>
+                </div>
+                <div>
+                    <span style="display:block; font-size:10px; color:#555; font-weight:800; letter-spacing:0.5px; margin-bottom:2px;">DIRECT BACKUP:</span>
+                    <a href="mailto:lwazilmabaso@gmail.com" class="footer-email-link" style="color:#d4af37; text-decoration:none; font-size:0.9rem;"><i class="fas fa-envelope" style="margin-right:6px;"></i> lwazilmabaso@gmail.com</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container" style="display:flex; justify-content:space-between; align-items:center; color:#555; font-size:0.85rem;">
+                <p>&copy; 2026 LN Mabaso Logistics. All Rights Reserved.</p>
+                <p class="attribution" style="margin-left:auto;">Designed by <span class="designer-brand" style="color:#fff; font-weight:600;">MS Design</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function focusMapNode(targetId) {
+            document.querySelectorAll('.branch-card-trigger').forEach(card => {
+                card.classList.remove('active');
+            });
+            
+            const matchingCard = document.querySelector(`.branch-card-trigger[data-target="${targetId}"]`);
+            if(matchingCard) matchingCard.classList.add('active');
+            
+            document.querySelectorAll('.map-marker-node').forEach(node => {
+                const targetCircle = node.querySelector('circle:nth-child(2)');
+                targetCircle.setAttribute('r', '7');
+                targetCircle.setAttribute('fill', '#d4af37');
+            });
+
+            const activeNode = document.getElementById(targetId);
+            if(activeNode) {
+                const innerCircle = activeNode.querySelector('circle:nth-child(2)');
+                innerCircle.setAttribute('r', '10');
+                innerCircle.setAttribute('fill', '#ffffff');
+            }
+        }
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
