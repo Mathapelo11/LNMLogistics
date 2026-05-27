@@ -651,6 +651,38 @@ textarea:focus {
     width: 100%;
 }
 
+.article-icon {
+    align-items: center;
+    background:
+        linear-gradient(135deg, rgba(5, 5, 5, 0.96), rgba(5, 5, 5, 0.84)),
+        var(--black);
+    color: var(--gold);
+    display: flex;
+    font-size: 2.35rem;
+    height: 150px;
+    justify-content: center;
+    position: relative;
+}
+
+.article-icon::after {
+    background: var(--gold);
+    bottom: 0;
+    content: "";
+    height: 4px;
+    left: 0;
+    position: absolute;
+    right: 0;
+}
+
+.article-icon i {
+    align-items: center;
+    border: 1px solid rgba(212, 175, 55, 0.42);
+    display: inline-flex;
+    height: 72px;
+    justify-content: center;
+    width: 72px;
+}
+
 .service-card-content,
 .article-card-content {
     padding: 24px 24px 26px;
@@ -782,6 +814,223 @@ textarea:focus {
     font-weight: 800;
     line-height: 1;
     margin-bottom: 12px;
+}
+
+.process-flow-grid {
+    display: grid;
+    gap: 24px;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.process-flow-card {
+    background: var(--white);
+    border: 1px solid var(--line);
+    box-shadow: 0 18px 42px rgba(0, 0, 0, 0.07);
+    display: grid;
+    gap: 18px;
+    overflow: hidden;
+    padding: 30px;
+    position: relative;
+}
+
+.process-flow-card::before {
+    background: var(--gold);
+    content: "";
+    height: 4px;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.process-flow-card h3 {
+    align-items: center;
+    display: flex;
+    gap: 12px;
+    margin: 0;
+}
+
+.process-flow-card .icon-box {
+    margin-bottom: 0;
+}
+
+.process-steps {
+    counter-reset: process-step;
+    display: grid;
+    gap: 12px;
+    list-style: none;
+}
+
+.process-steps li {
+    align-items: flex-start;
+    color: var(--muted);
+    counter-increment: process-step;
+    display: grid;
+    font-weight: 600;
+    gap: 12px;
+    grid-template-columns: 34px 1fr;
+    line-height: 1.55;
+}
+
+.process-steps li::before {
+    align-items: center;
+    background: var(--soft);
+    border: 1px solid var(--line);
+    color: var(--gold-dark);
+    content: counter(process-step, decimal-leading-zero);
+    display: inline-flex;
+    font-family: var(--font-heading);
+    font-size: 0.72rem;
+    font-weight: 800;
+    height: 34px;
+    justify-content: center;
+    line-height: 1;
+    width: 34px;
+}
+
+.process-workflow-section {
+    background:
+        linear-gradient(rgba(246, 244, 239, 0.97), rgba(246, 244, 239, 0.97)),
+        url("images/truck.jpeg") center / cover no-repeat;
+}
+
+.workflow-board {
+    display: grid;
+    gap: 18px;
+}
+
+.workflow-panel {
+    background: var(--white);
+    border: 1px solid var(--line);
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.08);
+    display: grid;
+    grid-template-columns: 290px 1fr;
+    overflow: hidden;
+}
+
+.workflow-title {
+    background:
+        linear-gradient(145deg, rgba(5, 5, 5, 0.96), rgba(5, 5, 5, 0.86)),
+        url("images/fleet.jpeg") center / cover no-repeat;
+    color: var(--white);
+    min-height: 260px;
+    padding: 32px 28px;
+    position: relative;
+}
+
+.workflow-panel:nth-child(1) .workflow-title {
+    background:
+        linear-gradient(145deg, rgba(5, 5, 5, 0.96), rgba(5, 5, 5, 0.82)),
+        url("images/drivin.jpeg") center / cover no-repeat;
+}
+
+.workflow-panel:nth-child(2) .workflow-title {
+    background:
+        linear-gradient(145deg, rgba(5, 5, 5, 0.96), rgba(5, 5, 5, 0.82)),
+        url("images/carrier.png") center / cover no-repeat;
+}
+
+.workflow-panel:nth-child(3) .workflow-title {
+    background:
+        linear-gradient(145deg, rgba(5, 5, 5, 0.96), rgba(5, 5, 5, 0.82)),
+        url("images/truck.jpeg") center / cover no-repeat;
+}
+
+.workflow-panel:nth-child(4) .workflow-title {
+    background:
+        linear-gradient(145deg, rgba(5, 5, 5, 0.96), rgba(5, 5, 5, 0.82)),
+        url("images/flatbed.jpeg") center / cover no-repeat;
+}
+
+.workflow-title::after {
+    background: var(--gold);
+    bottom: 0;
+    content: "";
+    height: 5px;
+    left: 0;
+    position: absolute;
+    right: 0;
+}
+
+.workflow-title i {
+    align-items: center;
+    background: var(--gold);
+    color: var(--black);
+    display: inline-flex;
+    font-size: 1.25rem;
+    height: 48px;
+    justify-content: center;
+    margin-bottom: 24px;
+    width: 48px;
+}
+
+.workflow-title h3 {
+    font-size: 1.45rem;
+    max-width: 210px;
+}
+
+.workflow-title p {
+    color: #d8d8d8;
+    font-size: 0.92rem;
+    font-weight: 600;
+    margin-top: 12px;
+}
+
+.workflow-count {
+    color: rgba(212, 175, 55, 0.18);
+    font-family: var(--font-heading);
+    font-size: 5rem;
+    font-weight: 800;
+    line-height: 1;
+    position: absolute;
+    right: 20px;
+    top: 22px;
+}
+
+.workflow-steps {
+    counter-reset: workflow-step;
+    display: grid;
+    list-style: none;
+    padding: 22px 30px;
+}
+
+.workflow-steps li {
+    border-bottom: 1px solid var(--line);
+    color: var(--muted);
+    counter-increment: workflow-step;
+    display: grid;
+    gap: 5px;
+    grid-template-columns: 130px 1fr;
+    padding: 16px 0 16px 54px;
+    position: relative;
+}
+
+.workflow-steps li:last-child {
+    border-bottom: 0;
+}
+
+.workflow-steps li::before {
+    align-items: center;
+    background: var(--black);
+    color: var(--gold);
+    content: counter(workflow-step, decimal-leading-zero);
+    display: inline-flex;
+    font-family: var(--font-heading);
+    font-size: 0.76rem;
+    font-weight: 800;
+    height: 34px;
+    justify-content: center;
+    left: 0;
+    position: absolute;
+    top: 17px;
+    width: 34px;
+}
+
+.workflow-steps span {
+    color: var(--black);
+    font-family: var(--font-heading);
+    font-size: 0.92rem;
+    font-weight: 800;
 }
 
 .quote-layout {
@@ -1076,6 +1325,7 @@ textarea:focus {
     .hero-grid,
     .split-grid,
     .about-red-dot,
+    .workflow-panel,
     .quote-band-grid,
     .quote-layout,
     .contact-grid {
@@ -1086,6 +1336,7 @@ textarea:focus {
     .grid-3,
     .article-grid,
     .benefit-strip,
+    .process-flow-grid,
     .rd-service-grid,
     .rd-process-grid,
     .client-strip,
@@ -1169,6 +1420,7 @@ textarea:focus {
     .grid-3,
     .article-grid,
     .benefit-strip,
+    .process-flow-grid,
     .rd-service-grid,
     .rd-process-grid,
     .client-strip,
@@ -1183,5 +1435,23 @@ textarea:focus {
     .top-bar .container {
         align-items: flex-start;
         flex-direction: column;
+    }
+
+    .process-flow-card {
+        padding: 24px 20px;
+    }
+
+    .workflow-title {
+        min-height: auto;
+        padding: 28px 24px;
+    }
+
+    .workflow-steps {
+        padding: 18px 20px;
+    }
+
+    .workflow-steps li {
+        grid-template-columns: 1fr;
+        padding-left: 48px;
     }
 }
