@@ -211,7 +211,7 @@ button.btn {
 .hero {
     background:
         linear-gradient(90deg, rgba(0, 0, 0, 0.78), rgba(0, 0, 0, 0.38) 58%, rgba(0, 0, 0, 0.12)),
-        url("images/truck.jpeg") center / cover no-repeat;
+        url("images/TRUCK2.jpeg") center / cover no-repeat;
     color: var(--white);
     min-height: 680px;
     padding: 120px 0 150px;
