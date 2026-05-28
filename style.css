@@ -419,6 +419,10 @@ h3 {
     grid-template-columns: repeat(3, 1fr);
 }
 
+.process-method-summary {
+    margin-bottom: 28px;
+}
+
 .rd-process-card {
     background: var(--white);
     box-shadow: 0 18px 45px rgba(0, 0, 0, 0.08);
@@ -651,6 +655,38 @@ textarea:focus {
     width: 100%;
 }
 
+.article-icon {
+    align-items: center;
+    background:
+        linear-gradient(135deg, rgba(5, 5, 5, 0.96), rgba(5, 5, 5, 0.84)),
+        var(--black);
+    color: var(--gold);
+    display: flex;
+    font-size: 2.35rem;
+    height: 150px;
+    justify-content: center;
+    position: relative;
+}
+
+.article-icon::after {
+    background: var(--gold);
+    bottom: 0;
+    content: "";
+    height: 4px;
+    left: 0;
+    position: absolute;
+    right: 0;
+}
+
+.article-icon i {
+    align-items: center;
+    border: 1px solid rgba(212, 175, 55, 0.42);
+    display: inline-flex;
+    height: 72px;
+    justify-content: center;
+    width: 72px;
+}
+
 .service-card-content,
 .article-card-content {
     padding: 24px 24px 26px;
@@ -784,6 +820,223 @@ textarea:focus {
     margin-bottom: 12px;
 }
 
+.process-flow-grid {
+    display: grid;
+    gap: 24px;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.process-flow-card {
+    background: var(--white);
+    border: 1px solid var(--line);
+    box-shadow: 0 18px 42px rgba(0, 0, 0, 0.07);
+    display: grid;
+    gap: 18px;
+    overflow: hidden;
+    padding: 30px;
+    position: relative;
+}
+
+.process-flow-card::before {
+    background: var(--gold);
+    content: "";
+    height: 4px;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.process-flow-card h3 {
+    align-items: center;
+    display: flex;
+    gap: 12px;
+    margin: 0;
+}
+
+.process-flow-card .icon-box {
+    margin-bottom: 0;
+}
+
+.process-steps {
+    counter-reset: process-step;
+    display: grid;
+    gap: 12px;
+    list-style: none;
+}
+
+.process-steps li {
+    align-items: flex-start;
+    color: var(--muted);
+    counter-increment: process-step;
+    display: grid;
+    font-weight: 600;
+    gap: 12px;
+    grid-template-columns: 34px 1fr;
+    line-height: 1.55;
+}
+
+.process-steps li::before {
+    align-items: center;
+    background: var(--soft);
+    border: 1px solid var(--line);
+    color: var(--gold-dark);
+    content: counter(process-step, decimal-leading-zero);
+    display: inline-flex;
+    font-family: var(--font-heading);
+    font-size: 0.72rem;
+    font-weight: 800;
+    height: 34px;
+    justify-content: center;
+    line-height: 1;
+    width: 34px;
+}
+
+.process-workflow-section {
+    background:
+        linear-gradient(rgba(246, 244, 239, 0.97), rgba(246, 244, 239, 0.97)),
+        url("images/truck.jpeg") center / cover no-repeat;
+}
+
+.workflow-board {
+    display: grid;
+    gap: 18px;
+}
+
+.workflow-panel {
+    background: var(--white);
+    border: 1px solid var(--line);
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.08);
+    display: grid;
+    grid-template-columns: 290px 1fr;
+    overflow: hidden;
+}
+
+.workflow-title {
+    background:
+        linear-gradient(145deg, rgba(5, 5, 5, 0.96), rgba(5, 5, 5, 0.86)),
+        url("images/fleet.jpeg") center / cover no-repeat;
+    color: var(--white);
+    min-height: 260px;
+    padding: 32px 28px;
+    position: relative;
+}
+
+.workflow-panel:nth-child(1) .workflow-title {
+    background:
+        linear-gradient(145deg, rgba(5, 5, 5, 0.96), rgba(5, 5, 5, 0.82)),
+        url("images/drivin.jpeg") center / cover no-repeat;
+}
+
+.workflow-panel:nth-child(2) .workflow-title {
+    background:
+        linear-gradient(145deg, rgba(5, 5, 5, 0.96), rgba(5, 5, 5, 0.82)),
+        url("images/carrier.png") center / cover no-repeat;
+}
+
+.workflow-panel:nth-child(3) .workflow-title {
+    background:
+        linear-gradient(145deg, rgba(5, 5, 5, 0.96), rgba(5, 5, 5, 0.82)),
+        url("images/truck.jpeg") center / cover no-repeat;
+}
+
+.workflow-panel:nth-child(4) .workflow-title {
+    background:
+        linear-gradient(145deg, rgba(5, 5, 5, 0.96), rgba(5, 5, 5, 0.82)),
+        url("images/flatbed.jpeg") center / cover no-repeat;
+}
+
+.workflow-title::after {
+    background: var(--gold);
+    bottom: 0;
+    content: "";
+    height: 5px;
+    left: 0;
+    position: absolute;
+    right: 0;
+}
+
+.workflow-title i {
+    align-items: center;
+    background: var(--gold);
+    color: var(--black);
+    display: inline-flex;
+    font-size: 1.25rem;
+    height: 48px;
+    justify-content: center;
+    margin-bottom: 24px;
+    width: 48px;
+}
+
+.workflow-title h3 {
+    font-size: 1.45rem;
+    max-width: 210px;
+}
+
+.workflow-title p {
+    color: #d8d8d8;
+    font-size: 0.92rem;
+    font-weight: 600;
+    margin-top: 12px;
+}
+
+.workflow-count {
+    color: rgba(212, 175, 55, 0.18);
+    font-family: var(--font-heading);
+    font-size: 5rem;
+    font-weight: 800;
+    line-height: 1;
+    position: absolute;
+    right: 20px;
+    top: 22px;
+}
+
+.workflow-steps {
+    counter-reset: workflow-step;
+    display: grid;
+    list-style: none;
+    padding: 22px 30px;
+}
+
+.workflow-steps li {
+    border-bottom: 1px solid var(--line);
+    color: var(--muted);
+    counter-increment: workflow-step;
+    display: grid;
+    gap: 5px;
+    grid-template-columns: 130px 1fr;
+    padding: 16px 0 16px 54px;
+    position: relative;
+}
+
+.workflow-steps li:last-child {
+    border-bottom: 0;
+}
+
+.workflow-steps li::before {
+    align-items: center;
+    background: var(--black);
+    color: var(--gold);
+    content: counter(workflow-step, decimal-leading-zero);
+    display: inline-flex;
+    font-family: var(--font-heading);
+    font-size: 0.76rem;
+    font-weight: 800;
+    height: 34px;
+    justify-content: center;
+    left: 0;
+    position: absolute;
+    top: 17px;
+    width: 34px;
+}
+
+.workflow-steps span {
+    color: var(--black);
+    font-family: var(--font-heading);
+    font-size: 0.92rem;
+    font-weight: 800;
+}
+
 .quote-layout {
     align-items: start;
     display: grid;
@@ -838,12 +1091,110 @@ textarea:focus {
 }
 
 .map-box {
-    background:
-        linear-gradient(rgba(0, 0, 0, 0.52), rgba(0, 0, 0, 0.62)),
-        url("images/storage to dealer.jpeg") center / cover no-repeat;
+    background: var(--black);
     color: var(--white);
+    display: grid;
+    gap: 28px;
     min-height: 420px;
+    overflow: hidden;
     padding: 34px;
+    position: relative;
+}
+
+.map-box::before {
+    background:
+        linear-gradient(rgba(0, 0, 0, 0.72), rgba(0, 0, 0, 0.82)),
+        url("images/storage to dealer.jpeg") center / cover no-repeat;
+    content: "";
+    inset: 0;
+    opacity: 0.42;
+    position: absolute;
+}
+
+.map-copy,
+.location-map {
+    position: relative;
+    z-index: 1;
+}
+
+.map-copy p {
+    color: #e5e5e5;
+    margin-top: 12px;
+}
+
+.location-map {
+    aspect-ratio: 1.22 / 1;
+    background:
+        radial-gradient(circle at 58% 38%, rgba(212, 175, 55, 0.18), transparent 28%),
+        linear-gradient(145deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.04));
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    min-height: 270px;
+}
+
+.location-map::before {
+    background: rgba(246, 244, 239, 0.9);
+    clip-path: polygon(39% 6%, 57% 10%, 69% 22%, 78% 37%, 75% 52%, 86% 64%, 69% 78%, 58% 95%, 42% 87%, 30% 74%, 18% 62%, 23% 42%, 16% 26%, 28% 14%);
+    content: "";
+    inset: 28px 44px;
+    opacity: 0.92;
+    position: absolute;
+}
+
+.map-route {
+    background: rgba(212, 175, 55, 0.8);
+    height: 2px;
+    left: 34%;
+    position: absolute;
+    top: 46%;
+    transform-origin: left center;
+    z-index: 2;
+}
+
+.route-jhb-dbn {
+    transform: rotate(30deg);
+    width: 27%;
+}
+
+.route-dbn-cpt {
+    left: 56%;
+    top: 57%;
+    transform: rotate(138deg);
+    width: 39%;
+}
+
+.map-marker {
+    align-items: center;
+    color: var(--black);
+    display: flex;
+    flex-direction: column;
+    font-size: 0.72rem;
+    font-weight: 900;
+    gap: 2px;
+    position: absolute;
+    text-transform: uppercase;
+    transform: translate(-50%, -100%);
+    z-index: 3;
+}
+
+.map-marker i {
+    color: var(--gold);
+    filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.28));
+    font-size: 2rem;
+}
+
+.marker-jhb {
+    left: 48%;
+    top: 46%;
+}
+
+.marker-dbn {
+    left: 67%;
+    top: 60%;
+}
+
+.marker-cpt {
+    left: 39%;
+    top: 82%;
 }
 
 .contact-method {
@@ -864,6 +1215,27 @@ textarea:focus {
 }
 
 .contact-method i {
+    color: var(--gold);
+}
+
+.branch-list {
+    border-top: 1px solid rgba(255, 255, 255, 0.16);
+    display: grid;
+    gap: 8px;
+    margin-top: 24px;
+    padding-top: 22px;
+}
+
+.branch-list h3 {
+    color: var(--white);
+}
+
+.branch-list p {
+    font-size: 0.9rem;
+    margin-top: 0;
+}
+
+.branch-list strong {
     color: var(--gold);
 }
 
@@ -957,6 +1329,7 @@ textarea:focus {
     .hero-grid,
     .split-grid,
     .about-red-dot,
+    .workflow-panel,
     .quote-band-grid,
     .quote-layout,
     .contact-grid {
@@ -967,6 +1340,7 @@ textarea:focus {
     .grid-3,
     .article-grid,
     .benefit-strip,
+    .process-flow-grid,
     .rd-service-grid,
     .rd-process-grid,
     .client-strip,
@@ -989,6 +1363,47 @@ textarea:focus {
 
     .page-hero h1 {
         font-size: clamp(2.25rem, 7vw, 3.5rem);
+    }
+}
+
+@media (max-width: 860px) {
+    .header-inner {
+        min-height: 74px;
+    }
+
+    .hero {
+        background-position: center right;
+        min-height: 560px;
+        padding: 96px 0 118px;
+    }
+
+    .hero p {
+        max-width: 100%;
+    }
+
+    .red-dot-overlap {
+        margin-top: -58px;
+    }
+
+    .benefit-tile {
+        min-height: auto;
+        padding: 28px 24px;
+    }
+
+    .about-image-panel {
+        min-height: 360px;
+    }
+
+    .rd-service-grid {
+        gap: 18px;
+    }
+
+    .rd-service-card {
+        min-height: auto;
+    }
+
+    .quote-band-grid {
+        align-items: stretch;
     }
 }
 
@@ -1018,9 +1433,62 @@ textarea:focus {
         font-size: 0.56rem;
     }
 
+    .site-header {
+        position: sticky;
+    }
+
+    .header-inner {
+        min-height: 68px;
+    }
+
+    .nav-menu {
+        gap: 0;
+        padding: 8px 14px;
+    }
+
+    .nav-menu li {
+        border-bottom: 1px solid var(--line);
+    }
+
+    .nav-menu li:last-child {
+        border-bottom: 0;
+    }
+
+    .nav-link {
+        display: block;
+        padding: 13px 0;
+    }
+
     .hero {
         min-height: auto;
-        padding: 78px 0 52px;
+        padding: 64px 0 70px;
+    }
+
+    .hero h1 {
+        font-size: clamp(2.55rem, 14vw, 3.8rem);
+    }
+
+    .hero-kicker {
+        font-size: 1.15rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+        margin: 18px 0 24px;
+    }
+
+    .hero-actions,
+    .cta-actions {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    .hero-actions .btn,
+    .cta-actions .btn,
+    .quote-panel .btn,
+    .quote-form-card .btn,
+    .section-head .btn {
+        width: 100%;
     }
 
     .page-hero {
@@ -1039,6 +1507,7 @@ textarea:focus {
     .quote-panel,
     .quote-form-card,
     .card,
+    .benefit-tile,
     .service-card-content,
     .article-card-content,
     .sidebar-box {
@@ -1050,6 +1519,7 @@ textarea:focus {
     .grid-3,
     .article-grid,
     .benefit-strip,
+    .process-flow-grid,
     .rd-service-grid,
     .rd-process-grid,
     .client-strip,
@@ -1059,10 +1529,124 @@ textarea:focus {
         grid-template-columns: 1fr;
     }
 
+    .red-dot-overlap {
+        margin-top: 0;
+    }
+
+    .section {
+        padding: 58px 0;
+    }
+
+    .section-head {
+        gap: 14px;
+        margin-bottom: 24px;
+    }
+
+    h2 {
+        font-size: clamp(1.55rem, 8vw, 2.15rem);
+    }
+
+    h3 {
+        font-size: 1.06rem;
+    }
+
+    .about-image-panel {
+        min-height: 300px;
+    }
+
     .section-head,
     .footer-bottom,
     .top-bar .container {
         align-items: flex-start;
         flex-direction: column;
+    }
+
+    .process-method-summary {
+        margin-bottom: 0;
+    }
+
+    .rd-service-card img,
+    .visual-frame img {
+        aspect-ratio: 16 / 10;
+    }
+
+    .client-box {
+        min-height: 92px;
+    }
+
+    .quote-band-grid {
+        gap: 24px;
+    }
+
+    .mini-form,
+    .quote-form {
+        gap: 12px;
+    }
+
+    input,
+    select,
+    textarea {
+        font-size: 16px;
+    }
+
+    .site-footer {
+        padding-top: 44px;
+    }
+
+    .process-flow-card {
+        padding: 24px 20px;
+    }
+
+    .workflow-title {
+        min-height: auto;
+        padding: 28px 24px;
+    }
+
+    .workflow-steps {
+        padding: 18px 20px;
+    }
+
+    .workflow-steps li {
+        grid-template-columns: 1fr;
+        padding-left: 48px;
+    }
+}
+
+@media (max-width: 420px) {
+    .container {
+        width: min(100% - 22px, 1180px);
+    }
+
+    .brand {
+        gap: 9px;
+    }
+
+    .brand img {
+        height: 40px;
+        width: 40px;
+    }
+
+    .brand-name {
+        font-size: 0.82rem;
+    }
+
+    .brand-sub {
+        font-size: 0.5rem;
+        letter-spacing: 0.7px;
+    }
+
+    .mobile-toggle {
+        height: 40px;
+        width: 40px;
+    }
+
+    .hero {
+        padding: 52px 0 58px;
+    }
+
+    .btn,
+    button.btn {
+        min-height: 44px;
+        padding: 12px 16px;
     }
 }
